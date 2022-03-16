@@ -1,0 +1,23 @@
+<mat-card class="app">
+  <mat-card-title class="title">Lista de Tarefas</mat-card-title>
+
+  <mat-card-actions class="card">
+  <section id="adiciona">
+    <input mat-Input placeholder="Adicione uma nova tarefa"
+    #inputItem (keyup.enter)="incluirTarefa(inputItem.value)">
+    <button btn-adicionar (click)="incluirTarefa(inputItem.value)">+</button>
+  </section>
+
+  <section class="tarefas" *ngFor="let item of lista">
+      <p class="item-lista"> {{item}} </p>
+        <button btn-apagar (click)="excluirTarefa(item)">
+      <mat-icon>close</mat-icon>
+    </button>    
+  </section>
+
+  <div class="tarPendente">
+    <p>Você tem {{lista.length}} tarefas pendentes!</p>
+    <button btn-limpar (click)="removeLista()">Apagar</button>
+  </div>
+</mat-card-actions>
+</mat-card>
